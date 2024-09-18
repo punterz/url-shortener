@@ -28,3 +28,7 @@ target/
 *.db
 *.pid
 *.tmp
+
+### OS-specific files ###
+.DS_Store
+Thumbs.db
