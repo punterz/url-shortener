@@ -14,6 +14,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.slf4j.Logger;
@@ -79,6 +80,20 @@ public class UrlShortenerControllerTest {
 
         // Verify that the service method was called once
         Mockito.verify(urlShortenerService, Mockito.times(1)).shortenUrl(longUrl);
+    }
+
+    @Test
+    public void testHealthCheck() throws Exception {
+        logger.info("Starting test for healthcheck");
+
+        // Perform a GET request to the /health endpoint
+        ResultActions result = mockMvc.perform(MockMvcRequestBuilders.get("/ping"));
+
+        // Validate the response
+        result.andExpect(MockMvcResultMatchers.status().isOk())                // Expect HTTP 200 OK
+              .andExpect(MockMvcResultMatchers.jsonPath("$.status").value("UP")); // Expect the "status" field to be "UP"
+        
+        logger.info("Test for healthcheck passed");
     }
 
     /**

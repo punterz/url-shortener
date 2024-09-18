@@ -58,6 +58,18 @@ public class UrlShortenerController {
         }
     }
 
+    // Health check URL
+    @GetMapping("/ping")
+    public ResponseEntity<Map<String, String>> healthCheck() {
+        logger.info("Health check endpoint called.");
+        
+        Map<String, String> response = new HashMap<>();
+        response.put("status", "UP");
+        
+        logger.info("Health check status: {}", response.get("status"));
+        return ResponseEntity.ok(response);
+    }
+
     // Endpoint to redirect to the original URL
     @GetMapping("/{shortUrlKey}")
     public ResponseEntity<Void> redirectToLongUrl(@PathVariable String shortUrlKey) {
