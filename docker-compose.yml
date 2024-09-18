@@ -1,0 +1,19 @@
+services:
+  web:
+    build: .
+    ports:
+      - 80:80
+    depends_on:
+      - redis
+    networks:
+      - app-network
+
+  redis:
+    image: redis:alpine
+    command: ["redis-server", "--bind", "redis", "--port", "6379"]
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

@@ -1,0 +1,30 @@
+HELP.md
+
+### Maven ###
+target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### VS Code ###
+.vscode/
+
+### Java ###
+*.class
+*.jar
+*.war
+*.ear
+*.log
+*.csv
+*.tsv
+
+### Spring Boot ###
+*.db
+*.pid
+*.tmp
