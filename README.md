@@ -119,7 +119,7 @@ To enhance your development experience with Copilot in Visual Studio Code, follo
      Content-Length: 0
      Date: E, dd MMM yyyy HH:mm:ss z
      ```
-    - Alternatively, open the url `http://localhost:/e149be` [this](http://localhost:/e149be) in a  browser and it will be redirected to `https://www.example.com` [here](https://www.example.com).
+    - Alternatively, open the url `http://localhost/e149be` [this](http://localhost/e149be) in a  browser and it will be redirected to `https://www.example.com` [here](https://www.example.com).
 
 3. **Test Not Found Case**:
    - Use the following `curl` command to test a not found case:
