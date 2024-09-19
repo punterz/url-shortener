@@ -1,6 +1,21 @@
 # URL Shortener
 A Dockerized Spring Boot URL shortener built using Redis as the data store. This project serves as a demonstration of how to use the Llama 8B model locally as a coding copilot. It's purely for exploration and not an official implementation. Have fun coding, with less effort!
 
+# Demo
+URL shortner Demo Service is available under domain `https://zypp.lol` 
+- Healthcheck request
+  
+   ```bash
+   curl -i https://zypp.lol/ping
+   ```
+- URL shortener endpoint sample request
+  
+   ```bash
+   curl -X POST https://zypp.lol/shorten 
+   -H "Content-Type: application/json" 
+   -d '{"longUrl": "https://www.example.com"}'
+   ```  
+
 # Getting Started
 Before we start the development, lets set up the LLM on local machine and integrate it with the choice of IDE/editor so that the LLM helps you like a copilot while you are coding
 
