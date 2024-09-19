@@ -82,6 +82,10 @@ public class UrlShortenerControllerTest {
         Mockito.verify(urlShortenerService, Mockito.times(1)).shortenUrl(longUrl);
     }
 
+    /**
+     * The test case tests the healthcheck url 
+     * 
+     */
     @Test
     public void testHealthCheck() throws Exception {
         logger.info("Starting test for healthcheck");
@@ -95,6 +99,29 @@ public class UrlShortenerControllerTest {
         
         logger.info("Test for healthcheck passed");
     }
+
+    /**
+     * The test case tests the home page url 
+     * 
+     */
+    @Test
+    public void testHomePage() throws Exception {
+        logger.info("Starting test for homePage endpoint.");
+
+        // Perform GET request to root ("/")
+        ResultActions resultActions = mockMvc.perform(MockMvcRequestBuilders.get("/"));
+        
+        logger.info("Performed GET request to root URL.");
+
+        // Verify status is 200 OK
+        resultActions.andExpect(MockMvcResultMatchers.status().isOk());
+        logger.info("Verified that the status is OK.");
+
+        // Verify the JSON response contains the expected fields
+        resultActions.andExpect(MockMvcResultMatchers.jsonPath("$.message").value(("Welcome to the URL Shortener Service!")))
+                     .andExpect(MockMvcResultMatchers.jsonPath("$.usage").value(("Use POST /shorten with a JSON body containing 'longUrl' to shorten a URL.")));
+        logger.info("Verified that the response contains the correct message and usage instructions.");
+    }    
 
     /**
      * The test case tests the service to perform correct URL redirecting with short URL

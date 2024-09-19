@@ -70,6 +70,19 @@ public class UrlShortenerController {
         return ResponseEntity.ok(response);
     }
 
+    // Default homepage endpoint
+    @GetMapping("/")
+    public ResponseEntity<Map<String, String>> homePage() {
+        logger.info("Default homepage accessed.");
+        
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Welcome to the URL Shortener Service!");
+        response.put("usage", "Use POST /shorten with a JSON body containing 'longUrl' to shorten a URL.");
+
+        logger.info("Homepage response: {}", response);
+        return ResponseEntity.ok(response);
+    }
+
     // Endpoint to redirect to the original URL
     @GetMapping("/{shortUrlKey}")
     public ResponseEntity<Void> redirectToLongUrl(@PathVariable String shortUrlKey) {

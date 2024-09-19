@@ -2,7 +2,8 @@
 A Dockerized Spring Boot URL shortener built using Redis as the data store. This project serves as a demonstration of how to use the Llama 8B model locally as a coding copilot. It's purely for exploration and not an official implementation. Have fun coding, with less effort!
 
 # Demo
-URL shortner Demo Service is available under domain `https://zypp.lol` 
+URL shortner Demo Service is available under domain `https://zypp.lol/` [here](https://zypp.lol/)  
+
 - Healthcheck request
   
    ```bash
